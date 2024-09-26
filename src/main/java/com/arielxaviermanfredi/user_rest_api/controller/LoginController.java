@@ -43,16 +43,16 @@ public class LoginController {
             User user = service.getUserByNameAndPassword(name, password);
             if(user!=null) {
                 if (email!=null) {
-                    return ResponseEntity.ok().body("Welcome "+user.getName()+", you have successfully logged-in the system using the name and password!\nYou are a cautious person, aren't you? You put both your name and password as well as your email address...");
+                    return ResponseEntity.ok().body("Welcome "+user.getName()+", you have successfully logged in the system using the name and password!\nYou are a cautious person, aren't you? You put both your name and password as well as your email address...");
                 }
-                return ResponseEntity.ok().body("Welcome "+user.getName()+", you have successfully logged-in the system using the name and password!");
+                return ResponseEntity.ok().body("Welcome "+user.getName()+", you have successfully logged in the system using the name and password!");
             } 
             return ResponseEntity.badRequest().body("Could not find your User by Name or Password, please check your credentials and the request and try again.");
         } 
         else if (email!=null) {
             User user = service.getUserByEmailAndPassword(email, password);
             if (user!=null) {
-                return ResponseEntity.ok().body("Welcome "+user.getName()+", you have successfully logged-in the System using the e-mail and password!");
+                return ResponseEntity.ok().body("Welcome "+user.getName()+", you have successfully logged in the System using the e-mail and password!");
             }
             return ResponseEntity.badRequest().body("Could not find your User by E-mail and Password, please check your credentials and the request and try again.");
         }

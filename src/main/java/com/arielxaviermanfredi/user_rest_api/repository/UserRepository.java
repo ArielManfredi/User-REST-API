@@ -8,6 +8,7 @@ import com.arielxaviermanfredi.user_rest_api.model.User;
 
 
 
+
 public interface UserRepository extends JpaRepository<User, UUID>{
     User findByNameIgnoreCase(String name);
     User findByEmailIgnoreCase(String email);
