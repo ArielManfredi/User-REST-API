@@ -23,10 +23,20 @@ public class UserService {
 
 
     public User getUser(String name, String email) {
-        try {
-            return userRepository.findByNameIgnoreCaseOrEmailIgnoreCase(name, email);
-        } catch (Exception e) {
-            return null;
+        User foundUser = userRepository.findByNameIgnoreCaseOrEmailIgnoreCase(name, email);
+
+        if(foundUser!=null) {
+            return foundUser;
         }
+        return null;
+    }
+
+    public User getUserFull(String name, String email, String password) {
+        User foundUser = userRepository.findByNameIgnoreCaseAndEmailIgnoreCaseAndPassword(name, email, password);
+
+        if(foundUser!=null) {
+            return foundUser;
+        }
+        return null;
     }
 }

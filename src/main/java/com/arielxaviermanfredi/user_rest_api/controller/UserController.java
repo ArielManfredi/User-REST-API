@@ -25,9 +25,20 @@ public class UserController {
 
     @PostMapping
     public String addUser(@RequestBody User user) {
+        User existentUser = service.getUserFull(user.getName(), user.getEmail(), user.getPassword());
+
+        if (existentUser!=null) {
+            return "User already registered!";
+        }
+
+        if(user.getPassword()==null){
+            return "Can not save the user without a password!";
+        }
+
         User savedUser = service.saveUser(user);
+
         if (savedUser != null) {
-            return "User "+savedUser.getName()+" saved successfully!";
+            return "User "+savedUser.getName()+" saved successfully!\n" + savedUser;
         }
         return "Could not save the user "+user.getName();
     }
@@ -37,6 +48,7 @@ public class UserController {
     public ResponseEntity<?> getUser(String name, String email) {
         if (name!=null || email!=null) {
             User foundUser = service.getUser(name, email);
+            
             if (foundUser!=null) {
                 return ResponseEntity.ok(foundUser);
             }
