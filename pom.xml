@@ -5,14 +5,14 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.3.4</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<version>3.3.5</version>
+		<relativePath/>
 	</parent>
 	<groupId>com.arielxaviermanfredi</groupId>
 	<artifactId>user-rest-api</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0</version>
 	<name>user-rest-api</name>
-	<description>Demo project for Spring Boot</description>
+	<description>User Registration REST API</description>
 	<url/>
 	<licenses>
 		<license/>
